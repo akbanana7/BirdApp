@@ -17,6 +17,6 @@ document.addEventListener("DOMContentLoaded", function() { // All button handlin
         buttonEffect("dbgButton");
         window.location.href = "debugPage/index.html";
     });
-
+    
 
 });
