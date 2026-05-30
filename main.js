@@ -8,7 +8,8 @@
 const {app, BrowserWindow, ipcMain } = require("electron"); // import electron modules
 const path = require("path"); // import path module for handling file paths
 
-const Store = require("electron-store"); // import electron-store module for data storage
+const StoreImport = require("electron-store"); // import electron-store module for data storage
+const Store = StoreImport.default || StoreImport;
 const store = new Store(); // create a new instance of electron-store
 
 

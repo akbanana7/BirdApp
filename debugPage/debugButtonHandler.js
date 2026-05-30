@@ -11,15 +11,19 @@ document.addEventListener("DOMContentLoaded", function() { // All button handlin
     const ipSubmit = document.getElementById("setIpButton");
     if (!ipSubmit) return;
 
-    ipSubmit.addEventListener("click", () => {
+    ipSubmit.addEventListener("click", async () => {
         buttonEffect("setIpButton");
         const ipInput = document.getElementById("ipAddress");
         if (!ipInput) return;
         const newIp = ipInput.value.trim();
         if (newIp) {
-            await window.settings.setServerIp(newIp);
-        }
-        else {
+            console.log(newIp);
+            if (window.settings && typeof window.settings.setServerIp === "function") {
+                await window.settings.setServerIp(newIp);
+            } else {
+                console.error("window.settings.setServerIp is not available");
+            }
+        } else {
             return;
         }
     });
