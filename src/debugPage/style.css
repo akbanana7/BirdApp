@@ -47,13 +47,23 @@ input {
     transform: scale(0.95);
 }
 
-.ipAddressContainer {
-    text-align: center;
-    margin-top: 20px;
-}
+
 
 .warning {
     color: rgb(255, 0, 0);
     font-size: 28px;
     margin-top: 10px;
+}
+
+div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pingResult {
+    font-size: 18px;
+    color: rgb(0, 255, 0);
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: underline;
 }

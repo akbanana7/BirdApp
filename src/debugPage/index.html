@@ -11,11 +11,18 @@
 <body>
     <h1>Debug</h1>
     <h2 class="warning"><i>WARNING. DO NOT TOUCH OR CHANGE ANYTHING WITHOUT KNOWING WHAT YOU ARE DOING</i></h2>
-
+    <button id="backButton">Back</button>
     <div class="ipAddressContainer">
         <h3>Set server IP Address</h3>
         <input type="text" id="ipAddress" placeholder="Enter IP Address">
         <button id="setIpButton">Set IP</button>
+    </div>
+    <br>
+    <div class="pingContainer">
+        <h3>Ping Server</h3>
+        <button id="pingButton">Ping</button>
+        <p>Server Response:</p>
+        <p id="pingResult"></p>
     </div>
 
 </body>
