@@ -1,3 +1,4 @@
+import { getServerIp, setServerIp } from "../storage/settings.js";
 function buttonEffect(id) { // Function to add a pressed effect to the button when clicked
     const currentButton = document.getElementById(id);
     if (!currentButton) return;
@@ -7,9 +8,11 @@ function buttonEffect(id) { // Function to add a pressed effect to the button wh
     }, 100);
 }
 
-document.addEventListener("DOMContentLoaded", function() { // All button handling goes in here
+document.addEventListener("DOMContentLoaded", async function() { // All button handling goes in here
     const ipSubmit = document.getElementById("setIpButton");
     if (!ipSubmit) return;
+    const ip = await getServerIp();
+    console.log("Current stored IP:", ip);
 
     ipSubmit.addEventListener("click", async () => {
         buttonEffect("setIpButton");
@@ -18,13 +21,15 @@ document.addEventListener("DOMContentLoaded", function() { // All button handlin
         const newIp = ipInput.value.trim();
         if (newIp) {
             console.log(newIp);
-            if (window.settings && typeof window.settings.setServerIp === "function") {
-                await window.settings.setServerIp(newIp);
+            if (setServerIp) {
+                await setServerIp(newIp);
             } else {
-                console.error("window.settings.setServerIp is not available");
+                console.error("saving messed up");
             }
         } else {
             return;
         }
     });
+
+
 });
